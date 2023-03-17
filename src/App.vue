@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import routerAuthentication from '@/composables/routerAuthentication';
+import routerAuthentication from '@/composables/auth/routerAuthentication';
 import FullScreenLoading from './components/FullScreenLoading.vue';
 
 export default {

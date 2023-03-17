@@ -27,7 +27,7 @@
 
 <script>
 import { ref } from 'vue';
-import userSignup from '@/composables/userSignup';
+import userSignup from '@/composables/auth/userSignup';
 
 export default {
   setup() {

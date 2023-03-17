@@ -8,7 +8,7 @@ export default function routerAuthentication() {
   const router = useRouter();
 
   watchEffect(() => {
-    console.log('Welcome vue watchEffect ran');
+    // console.log('Welcome vue watchEffect ran');
     const currentUser = store.state.user.currentUser;
     if (currentUser === undefined) {
       return;

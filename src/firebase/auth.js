@@ -22,7 +22,7 @@ export function logOut() {
 
 export function monitorAuthStateChanged(store) {
   return projectAuth.onAuthStateChanged((user) => {
-    console.log('onAuthStateChanged', user);
+    // console.log('onAuthStateChanged', user);
     if (user) {
       if (user.displayName) {
         // only set current user if displayName is not empty, otherwise
