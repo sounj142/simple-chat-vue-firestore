@@ -1,30 +1,17 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <FullScreenLoading v-if="$store.state.user.currentUser === undefined" />
+  <router-view v-else />
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import routerAuthentication from '@/composables/routerAuthentication';
+import FullScreenLoading from './components/FullScreenLoading.vue';
 
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+export default {
+  setup() {
+    routerAuthentication();
+    return {};
+  },
+  components: { FullScreenLoading },
+};
+</script>
