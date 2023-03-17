@@ -1,17 +1,3 @@
 <template>
-  <FullScreenLoading v-if="$store.state.user.currentUser === undefined" />
-  <router-view v-else />
+  <router-view />
 </template>
-
-<script>
-import routerAuthentication from '@/composables/routerAuthentication';
-import FullScreenLoading from './components/FullScreenLoading.vue';
-
-export default {
-  setup() {
-    routerAuthentication();
-    return {};
-  },
-  components: { FullScreenLoading },
-};
-</script>

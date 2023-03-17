@@ -27,10 +27,13 @@
 
 <script>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import userSignup from '@/composables/userSignup';
 
 export default {
   setup() {
+    const router = useRouter();
+
     const formData = ref({
       displayName: '',
       email: '',
@@ -41,7 +44,12 @@ export default {
 
     const { signUp } = userSignup(isLoading, error);
 
-    const submitHandler = () => signUp(formData.value);
+    const submitHandler = async () => {
+      await signUp(formData.value);
+      if (!error.value) {
+        router.push({ name: 'Chatroom' });
+      }
+    };
 
     return { formData, isLoading, error, submitHandler };
   },

@@ -1,10 +1,11 @@
 <template>
   <div class="welcome container">
-    <div v-if="isLogin">
+    <div v-if="isLoginForm">
       <h2>Login</h2>
       <LoginForm />
       <p>
-        No account yet? <span @click="isLogin = !isLogin">Sign up</span> instead
+        No account yet?
+        <span @click="isLoginForm = !isLoginForm">Sign up</span> instead
       </p>
     </div>
 
@@ -13,7 +14,7 @@
       <SignupForm />
       <p>
         Already registered?
-        <span @click="isLogin = !isLogin">Sign in</span> instead
+        <span @click="isLoginForm = !isLoginForm">Sign in</span> instead
       </p>
     </div>
   </div>
@@ -27,7 +28,7 @@ export default {
   components: { SignupForm, LoginForm },
   data() {
     return {
-      isLogin: true,
+      isLoginForm: true,
     };
   },
 };

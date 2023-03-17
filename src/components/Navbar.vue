@@ -12,15 +12,20 @@
 <script>
 import { computed } from 'vue';
 import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 import * as auth from '@/firebase/auth';
 
 export default {
   setup() {
     const store = useStore();
+    const router = useRouter();
 
     const currentUser = computed(() => store.state.user.currentUser);
 
-    const logOut = () => auth.logOut();
+    const logOut = async () => {
+      await auth.logOut();
+      router.push({ name: 'Welcome' });
+    };
 
     return {
       currentUser,

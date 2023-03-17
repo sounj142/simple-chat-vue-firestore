@@ -20,10 +20,13 @@
 
 <script>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import userLogin from '@/composables/userLogin';
 
 export default {
   setup() {
+    const router = useRouter();
+
     const formData = ref({
       email: '',
       password: '',
@@ -32,7 +35,13 @@ export default {
     const error = ref(null);
 
     const { logIn } = userLogin(isLoading, error);
-    const submitHandler = () => logIn(formData.value);
+
+    const submitHandler = async () => {
+      await logIn(formData.value);
+      if (!error.value) {
+        router.push({ name: 'Chatroom' });
+      }
+    };
 
     return { formData, isLoading, error, submitHandler };
   },

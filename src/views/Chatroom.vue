@@ -1,5 +1,5 @@
 <template>
-  <div class="container" v-if="$store.state.user.currentUser">
+  <div class="container">
     <Navbar />
   </div>
 </template>
